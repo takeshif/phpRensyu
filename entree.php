@@ -5,6 +5,9 @@ class Entree {
   public $ingredients = array();
 
   public function __construct($name,$ingredients) {
+    if (! is_array($ingredients)) {
+      throw new Exception('$ingredinets must be an array');
+    }
     $this->name = $name;
     $this->ingredients = $ingredients;
   }
@@ -33,6 +36,14 @@ foreach (['chicke','lemon','bread','water'] as $ing) {
 
 $size = Entree::getSize();
 
+try {
+  $drink = new Entree('Grass of Milk', 'milk');
+  if ($dring->hasIngredient('milk')) {
+    print "Yummy!";
+  }
+} catch (Exception $e) {
+  print "Couldn't create the drink: " . $e->getMessage();
+}
 
 ?>
 
