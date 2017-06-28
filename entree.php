@@ -1,8 +1,8 @@
 <?php
 
 class Entree {
-  public $name;
-  public $ingredients = array();
+  private $name;
+  protected $ingredients = array();
 
   public function __construct($name,$ingredients) {
     if (! is_array($ingredients)) {
